@@ -4,55 +4,154 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>umerstar</title>
-  <meta name="description" content="Computer engineer. Web, homelab, hardware, automation.">
+  <meta name="description" content="Computer engineer. Homelab, hardware, automation, web.">
+  <meta property="og:title" content="umerstar">
+  <meta property="og:description" content="Computer engineer. Homelab, hardware, automation, web.">
+  <meta property="og:type" content="website">
   <style>
     :root {
       color-scheme: dark;
       --bg: #0d1117;
+      --panel: #161b22;
       --fg: #e6edf3;
       --muted: #8b949e;
       --accent: #7aa2f7;
+      --accent-2: #bb9af7;
+      --border: #30363d;
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    html, body { margin: 0; }
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-      display: grid;
-      place-items: center;
-      padding: 2rem;
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      padding: 3rem 1.5rem 5rem;
     }
-    main { max-width: 540px; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 3rem;
+    }
     h1 {
-      margin: 0 0 .5rem;
+      margin: 0 0 .25rem;
       font-size: 2.5rem;
       letter-spacing: -0.02em;
     }
-    .tag { color: var(--muted); margin: 0 0 2rem; }
+    .tag {
+      color: var(--muted);
+      margin: 0;
+    }
+    h2 {
+      margin: 2.5rem 0 1rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+    }
     p { margin: 0 0 1rem; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    ul { padding-left: 1.2rem; }
-    li { margin: .25rem 0; }
-    footer { margin-top: 2.5rem; color: var(--muted); font-size: .9rem; }
+    ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+    li { margin: .35rem 0; }
+    code {
+      background: var(--panel);
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      font-size: .9em;
+      border: 1px solid var(--border);
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: .75rem 0;
+    }
+    .card h3 {
+      margin: 0 0 .35rem;
+      font-size: 1rem;
+      color: var(--accent-2);
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+    }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 2rem; }
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>umerstar</h1>
-    <p class="tag">Computer engineer. Web, homelab, hardware, automation.</p>
+    <header>
+      <h1>umerstar</h1>
+      <p class="tag">Computer engineer. Web on one end, soldering iron on the other.</p>
+    </header>
 
-    <p>This site is a placeholder while I move things into the open. Soon: writeups on the homelab, n8n automations, and small hardware projects.</p>
+    <p>I'm happiest when something I built is humming away on a shelf in my closet doing useful work. This site is where I'll post notes on what I'm running, building, and breaking.</p>
 
-    <p>In the meantime:</p>
+    <h2>What's running in my closet</h2>
+    <p>A small homelab on <strong>Proxmox</strong>. The goal: self-host the things I'd otherwise rent from someone else, and learn the unglamorous parts of operations along the way.</p>
+    <ul>
+      <li>A handful of LXC containers and VMs for services I rely on day-to-day.</li>
+      <li>Networking that's a bit more deliberate than the average home setup â€” VLANs, DNS I actually own, monitoring I can read.</li>
+      <li><strong>n8n</strong> for the automations that quietly remove small annoyances from my life.</li>
+    </ul>
+
+    <h2>Hardware I poke at</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>ESP32 / Arduino</h3>
+        <p>Sensors, telemetry, the occasional "why is there a microcontroller in my coffee setup."</p>
+      </div>
+      <div class="card">
+        <h3>Raspberry Pi</h3>
+        <p>Bridges between the digital and physical â€” DIY tools, edge logging, home automation glue.</p>
+      </div>
+      <div class="card">
+        <h3>Drones (past life)</h3>
+        <p>Quadcopter flight controllers, fiducial tracking. The hardware mindset still shapes how I think about software.</p>
+      </div>
+      <div class="card">
+        <h3>Networking gear</h3>
+        <p>Switches, APs, a router that does more than its UI lets on. The invisible-when-it-works stuff.</p>
+      </div>
+    </div>
+
+    <h2>Web work</h2>
+    <p>By day: <code>Next.js</code>, <code>Astro</code>, <code>TypeScript</code>, deployed on Vercel. Marketing and product sites where performance and clarity matter more than framework flex.</p>
+
+    <h2>What I value</h2>
+    <ul>
+      <li><strong>Open source.</strong> I default to it when there's a choice, and I'm trying to give back more than I take.</li>
+      <li><strong>Owning the stack.</strong> If I can run it myself, I usually will.</li>
+      <li><strong>Being early.</strong> New protocols, new tools, new hardware â€” I'll try it.</li>
+      <li><strong>Security and privacy.</strong> Both as a discipline and as a personal default.</li>
+      <li><strong>Learning.</strong> I'd rather be a beginner at something interesting than an expert at something boring.</li>
+    </ul>
+
+    <h2>Notes &amp; writeups</h2>
+    <p>Coming soon: short, useful posts on the homelab setup, n8n workflows that actually save time, and ESP32 / RPi projects with their full source. Subscribe via RSS once that's live, or just check back.</p>
+
+    <h2>Elsewhere</h2>
     <ul>
       <li><a href="https://github.com/umerstar">GitHub</a></li>
     </ul>
 
     <footer>
-      &copy; umerstar
+      Built with HTML and stubbornness. Hosted on GitHub Pages. &copy; umerstar
     </footer>
   </main>
 </body>
